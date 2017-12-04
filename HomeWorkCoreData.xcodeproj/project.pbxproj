@@ -7,15 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB6BC24E1FD1DF5800482DBA /* StudentDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BC24D1FD1DF5800482DBA /* StudentDetailTableViewController.swift */; };
+		BB6BC2521FD46A0F00482DBA /* CourseListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BC2511FD46A0F00482DBA /* CourseListTableViewController.swift */; };
+		BB6BC2541FD4747200482DBA /* CourseDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BC2531FD4747200482DBA /* CourseDetailTableViewController.swift */; };
+		BB6BC25E1FD5B95000482DBA /* StudentCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BC25D1FD5B95000482DBA /* StudentCoreData.swift */; };
+		BB6BC2601FD5BB1D00482DBA /* JournalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BC25F1FD5BB1D00482DBA /* JournalTableViewController.swift */; };
 		BB90C2F41FD06EAC00012F5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB90C2F31FD06EAC00012F5E /* AppDelegate.swift */; };
 		BB90C2F61FD06EAC00012F5E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB90C2F51FD06EAC00012F5E /* ViewController.swift */; };
 		BB90C2F91FD06EAC00012F5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB90C2F71FD06EAC00012F5E /* Main.storyboard */; };
 		BB90C2FC1FD06EAC00012F5E /* HomeWorkCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB90C2FA1FD06EAC00012F5E /* HomeWorkCoreData.xcdatamodeld */; };
 		BB90C2FE1FD06EAC00012F5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BB90C2FD1FD06EAC00012F5E /* Assets.xcassets */; };
 		BB90C3011FD06EAC00012F5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB90C2FF1FD06EAC00012F5E /* LaunchScreen.storyboard */; };
+		BB90C3091FD0A23000012F5E /* ListStudentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB90C3081FD0A23000012F5E /* ListStudentTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB6BC24D1FD1DF5800482DBA /* StudentDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailTableViewController.swift; sourceTree = "<group>"; };
+		BB6BC2511FD46A0F00482DBA /* CourseListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListTableViewController.swift; sourceTree = "<group>"; };
+		BB6BC2531FD4747200482DBA /* CourseDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailTableViewController.swift; sourceTree = "<group>"; };
+		BB6BC25D1FD5B95000482DBA /* StudentCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentCoreData.swift; sourceTree = "<group>"; };
+		BB6BC25F1FD5BB1D00482DBA /* JournalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableViewController.swift; sourceTree = "<group>"; };
 		BB90C2F01FD06EAC00012F5E /* HomeWorkCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeWorkCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB90C2F31FD06EAC00012F5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB90C2F51FD06EAC00012F5E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +35,7 @@
 		BB90C2FD1FD06EAC00012F5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BB90C3001FD06EAC00012F5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB90C3021FD06EAC00012F5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BB90C3081FD0A23000012F5E /* ListStudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStudentTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,7 +69,13 @@
 			isa = PBXGroup;
 			children = (
 				BB90C2F31FD06EAC00012F5E /* AppDelegate.swift */,
+				BB6BC25D1FD5B95000482DBA /* StudentCoreData.swift */,
 				BB90C2F51FD06EAC00012F5E /* ViewController.swift */,
+				BB90C3081FD0A23000012F5E /* ListStudentTableViewController.swift */,
+				BB6BC2511FD46A0F00482DBA /* CourseListTableViewController.swift */,
+				BB6BC2531FD4747200482DBA /* CourseDetailTableViewController.swift */,
+				BB6BC24D1FD1DF5800482DBA /* StudentDetailTableViewController.swift */,
+				BB6BC25F1FD5BB1D00482DBA /* JournalTableViewController.swift */,
 				BB90C2F71FD06EAC00012F5E /* Main.storyboard */,
 				BB90C2FD1FD06EAC00012F5E /* Assets.xcassets */,
 				BB90C2FF1FD06EAC00012F5E /* LaunchScreen.storyboard */,
@@ -139,8 +157,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB6BC24E1FD1DF5800482DBA /* StudentDetailTableViewController.swift in Sources */,
 				BB90C2FC1FD06EAC00012F5E /* HomeWorkCoreData.xcdatamodeld in Sources */,
+				BB6BC25E1FD5B95000482DBA /* StudentCoreData.swift in Sources */,
+				BB6BC2541FD4747200482DBA /* CourseDetailTableViewController.swift in Sources */,
+				BB6BC2521FD46A0F00482DBA /* CourseListTableViewController.swift in Sources */,
+				BB90C3091FD0A23000012F5E /* ListStudentTableViewController.swift in Sources */,
 				BB90C2F61FD06EAC00012F5E /* ViewController.swift in Sources */,
+				BB6BC2601FD5BB1D00482DBA /* JournalTableViewController.swift in Sources */,
 				BB90C2F41FD06EAC00012F5E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -279,6 +303,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KJ28DR5WWZ;
 				INFOPLIST_FILE = HomeWorkCoreData/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = G.F.Oberemkov.HomeWorkCoreData;
@@ -293,6 +318,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KJ28DR5WWZ;
 				INFOPLIST_FILE = HomeWorkCoreData/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = G.F.Oberemkov.HomeWorkCoreData;
