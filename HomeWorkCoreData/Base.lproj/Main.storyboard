@@ -394,6 +394,7 @@
                                                     <rect key="frame" x="5" y="6" width="365" height="30"/>
                                                     <state key="normal" title="Журнал"/>
                                                     <connections>
+                                                        <action selector="goToJournal:" destination="YcT-p7-YFa" eventType="touchUpInside" id="I9n-ym-qRm"/>
                                                         <segue destination="9Rx-Yw-rBr" kind="presentation" id="434-bN-FwB"/>
                                                     </connections>
                                                 </button>
@@ -452,7 +453,7 @@
                             </items>
                         </navigationBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="pcl-ds-uXG">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="FetchCell" id="pcl-ds-uXG">
                                 <rect key="frame" x="0.0" y="72" width="375" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pcl-ds-uXG" id="ARY-zz-XdG">

@@ -55,21 +55,23 @@ class StudentDetailTableViewController: UITableViewController {
     }
     
     override func viewWillDisappear(_ animated: Bool) {
-        if let student = student, let name = nameTextField.text, let surname = surnameTextField.text, let email = emailTextField.text{
+        if let student = student, let name = nameTextField.text, let surname = surnameTextField.text, let email = emailTextField.text, let course = courseTextField.text{
             student.name = name
             student.email = email
             student.surname = surname
+            student.courseName = course
             do {
                 try managedObjectContext.save()
             } catch {
                 print("Sorry, can't change")
             }
         }else  if student == nil{
-            if let name = nameTextField.text, let surname = surnameTextField.text, let email = emailTextField.text, let entity = NSEntityDescription.entity(forEntityName: "Student", in: managedObjectContext), !name.isEmpty && !surname.isEmpty && !email.isEmpty {
+            if let name = nameTextField.text, let surname = surnameTextField.text, let email = emailTextField.text, let course = courseTextField.text, let entity = NSEntityDescription.entity(forEntityName: "Student", in: managedObjectContext), !name.isEmpty && !surname.isEmpty && !email.isEmpty && !course.isEmpty {
                 student = Student(entity: entity, insertInto: managedObjectContext)
                 student?.name = name
                 student?.surname = surname
                 student?.email = email
+                student?.courseName = course
             }
             do {
                 try managedObjectContext.save()

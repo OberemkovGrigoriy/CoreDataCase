@@ -28,6 +28,8 @@ class ListStudentTableViewController: UITableViewController {
         title = "Student List"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(ListStudentTableViewController.addStudent(sender:)))
         managedObjectContext = appDelegate.managedObjectContext
+     
+        //print(studients.first)
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -37,9 +39,9 @@ class ListStudentTableViewController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         reloadData()
         tableView.reloadData()
+     
     }
 
     override func didReceiveMemoryWarning() {
@@ -56,6 +58,7 @@ class ListStudentTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
+
         return studients.count
     }
 
@@ -75,7 +78,7 @@ class ListStudentTableViewController: UITableViewController {
                 tableView.reloadData()
             }
         } catch {
-            fatalError("There was an error fetching the list of device")
+              print(error)
         }
     }
     
@@ -100,12 +103,12 @@ class ListStudentTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let student = studients[indexPath.row]
         
-
-        cell.textLabel?.text = student.value(forKey: "surname") as! String
-        cell.detailTextLabel?.text = student.value(forKey: "name") as! String
+//
+//        cell.textLabel?.text = student.value(forKey: "surname") as? String
+//        cell.detailTextLabel?.text = student.value(forKey: "name") as? String
 
         
-        if let name = student.value(forKey: "name") as? String, let surname = student.value(forKey: "surname") as? String, let email = student.value(forKey: "email") as? String?{
+        if let name = student.value(forKey: "name") as? String, let surname = student.value(forKey: "surname") as? String{
             cell.textLabel?.text = surname
             cell.detailTextLabel?.text = name
         }

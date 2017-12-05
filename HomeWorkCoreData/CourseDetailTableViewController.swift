@@ -20,6 +20,9 @@ class CourseDetailTableViewController: UITableViewController {
     @IBOutlet weak var branchTextField: UITextField!
     @IBOutlet weak var teachersNameTextField: UITextField!
     
+    @IBAction func goToJournal(_ sender: Any) {
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -66,5 +69,12 @@ class CourseDetailTableViewController: UITableViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let dest = segue.destination as? JournalTableViewController{
+            dest.managedObjectContext = managedObjectContext
+            //print(courseNameTextField.text)
+            dest.templateName = courseNameTextField.text
+        }
+    }
 }
 

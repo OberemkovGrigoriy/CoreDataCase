@@ -7,21 +7,51 @@
 //
 
 import UIKit
+import CoreData
 
 class JournalTableViewController: UITableViewController {
 
+    var students = [Student]()
+    var managedObjectContext: NSManagedObjectContext!
+    var templateName: String?
+    
+    
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+       
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        
+        let model = managedObjectContext.persistentStoreCoordinator?.managedObjectModel
+        
+        guard let fetchRequest = model?.fetchRequestFromTemplate(withName: "Journal", substitutionVariables: ["courseName" : templateName!]) as? NSFetchRequest<Student> else {
+            assert(false, "No template!")
+        }
+        print(fetchRequest)
+        
+        
+        
+        do{
+            print("start executing")
+            let result = try self.managedObjectContext.fetch(fetchRequest)
+            students = result
+            print(students.count)
+            
+        } catch {
+            print("Error")
+        }
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -33,14 +63,24 @@ class JournalTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return students.count
     }
-
+    
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FetchCell", for: indexPath)
+        let fetchStudent = students[indexPath.row]
+        
+        if let surname = fetchStudent.value(forKey: "surname") as? String {
+            cell.textLabel?.text = surname
+        }
+    
+        return cell
+    }
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

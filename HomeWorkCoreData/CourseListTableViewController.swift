@@ -74,8 +74,8 @@ class CourseListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CourseCell", for: indexPath)
         let course = courses[indexPath.row]
         
-        cell.detailTextLabel?.text = course.value(forKey: "teachersName") as! String
-        cell.textLabel?.text = course.value(forKey: "courseName") as! String
+        cell.detailTextLabel?.text = course.value(forKey: "teachersName") as? String
+        cell.textLabel?.text = course.value(forKey: "courseName") as? String
         
         if selectedCourse == course {
             cell.accessoryType = .checkmark
