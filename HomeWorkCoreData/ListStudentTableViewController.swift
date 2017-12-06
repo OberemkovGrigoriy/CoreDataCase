@@ -20,7 +20,6 @@ class ListStudentTableViewController: UITableViewController {
     
     //for select student
     weak var pickerDelegate: StudentPickerDelegate?
-    var selectedCourse: Course?
 
     override func viewDidLoad() {
         super.viewDidLoad()
