@@ -36,15 +36,7 @@
                             <outlet property="delegate" destination="BIr-1g-BDf" id="jp3-eK-M4i"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="da9-7t-am8">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="f7Z-14-wDq">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="GG1-uR-EkZ">
-                                <rect key="frame" x="16" y="7" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="da9-7t-am8"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tra-Gv-d2U" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -234,15 +226,7 @@
                             <outlet property="delegate" destination="2py-3C-KTl" id="xfm-e9-d35"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="1D5-xJ-qFo">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="upU-Ck-omE">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZeD-Za-rjg">
-                                <rect key="frame" x="16" y="7" width="34" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back"/>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="1D5-xJ-qFo"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A0h-xr-Igt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

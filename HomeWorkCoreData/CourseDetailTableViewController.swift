@@ -13,6 +13,7 @@ class CourseDetailTableViewController: UITableViewController {
     
     var course: Course?
     var managedObjectContext: NSManagedObjectContext!
+    var saveCoreData: SaverWithErrorMessage?
     
 
     @IBOutlet weak var courseNameTextField: UITextField!
@@ -25,7 +26,7 @@ class CourseDetailTableViewController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        saveCoreData = SaverWithErrorMessage(managedObjectContext: self.managedObjectContext)
         if let course = course{
             courseNameTextField.text = course.courseName
             subjectNameTextField.text = course.subject
@@ -47,11 +48,8 @@ class CourseDetailTableViewController: UITableViewController {
             course.courseName = courseName
             course.subject = subject
             course.teachersName = teacher
-            do {
-                try managedObjectContext.save()
-            } catch {
-                print("Sorry, can't change")
-            }
+            saveCoreData?.saver(label: "Sorry, can't change")
+
         } else if course == nil{
             if let courseName = courseNameTextField.text, let branch = branchTextField.text, let subject = subjectNameTextField.text, let teacher = teachersNameTextField.text, let entity = NSEntityDescription.entity(forEntityName: "Course", in: managedObjectContext), !courseName.isEmpty && !branch.isEmpty && !subject.isEmpty && !teacher.isEmpty{
                 course = Course(entity: entity, insertInto: managedObjectContext)
@@ -59,11 +57,8 @@ class CourseDetailTableViewController: UITableViewController {
                 course?.courseName = courseName
                 course?.subject = subject
                 course?.teachersName = teacher
-                do {
-                    try managedObjectContext.save()
-                } catch {
-                    print("Sorry, can't change")
-                }
+                saveCoreData?.saver(label: "Sorry, can't change")
+
             }
             
         }

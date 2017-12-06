@@ -14,6 +14,7 @@ class StudentDetailTableViewController: UITableViewController {
 
     var student: Student?
     var managedObjectContext: NSManagedObjectContext!
+    var saveCoreData: SaverWithErrorMessage?
     
     
     @IBOutlet weak var nameTextField: UITextField!
@@ -23,14 +24,8 @@ class StudentDetailTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        managedObjectContext = appDelegate.managedObjectContext
-//
-//        if let student = student {
-//            nameTextField.text = student.name
-//            surnameTextField.text = student.surname
-//            emailTextField.text = student.email
-//        }
+        saveCoreData = SaverWithErrorMessage(managedObjectContext: self.managedObjectContext)
+
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -60,24 +55,16 @@ class StudentDetailTableViewController: UITableViewController {
             student.email = email
             student.surname = surname
             student.courseName = course
-            do {
-                try managedObjectContext.save()
-            } catch {
-                print("Sorry, can't change")
-            }
+            saveCoreData?.saver(label: "Sorry, can't change")
         }else  if student == nil{
-            if let name = nameTextField.text, let surname = surnameTextField.text, let email = emailTextField.text, let course = courseTextField.text, let entity = NSEntityDescription.entity(forEntityName: "Student", in: managedObjectContext), !name.isEmpty && !surname.isEmpty && !email.isEmpty && !course.isEmpty {
+            if let name = nameTextField.text, let surname = surnameTextField.text, let email = emailTextField.text, let course = courseTextField.text, let entity = NSEntityDescription.entity(forEntityName: "Student", in: managedObjectContext), !name.isEmpty && !surname.isEmpty && !email.isEmpty  {
                 student = Student(entity: entity, insertInto: managedObjectContext)
                 student?.name = name
                 student?.surname = surname
                 student?.email = email
                 student?.courseName = course
             }
-            do {
-                try managedObjectContext.save()
-            } catch {
-                print("Sorry, can't save")
-            }
+            saveCoreData?.saver(label: "Sorry, can't change")
         }
     }
     

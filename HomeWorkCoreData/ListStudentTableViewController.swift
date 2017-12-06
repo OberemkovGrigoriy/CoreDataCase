@@ -14,6 +14,7 @@ protocol StudentPickerDelegate: class {
 }
 
 class ListStudentTableViewController: UITableViewController {
+    var saveCoreData: SaverWithErrorMessage?
     var managedObjectContext: NSManagedObjectContext!
     var studients = [Student]()
     
@@ -22,19 +23,12 @@ class ListStudentTableViewController: UITableViewController {
     var selectedCourse: Course?
 
     override func viewDidLoad() {
-        
         super.viewDidLoad()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         title = "Student List"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(ListStudentTableViewController.addStudent(sender:)))
         managedObjectContext = appDelegate.managedObjectContext
-     
-        //print(studients.first)
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        saveCoreData = SaverWithErrorMessage(managedObjectContext: self.managedObjectContext)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,11 +84,7 @@ class ListStudentTableViewController: UITableViewController {
         if editingStyle == .delete {
             let thisIsStudent = studients[indexPath.row]
             managedObjectContext.delete(thisIsStudent)
-            do {
-                try managedObjectContext.save()
-            } catch {
-                print("Sorry, can't save")
-            }
+            saveCoreData?.saver(label: "sorry can't save")
             reloadData()
         }
     }
@@ -102,11 +92,6 @@ class ListStudentTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let student = studients[indexPath.row]
-        
-//
-//        cell.textLabel?.text = student.value(forKey: "surname") as? String
-//        cell.detailTextLabel?.text = student.value(forKey: "name") as? String
-
         
         if let name = student.value(forKey: "name") as? String, let surname = student.value(forKey: "surname") as? String{
             cell.textLabel?.text = surname

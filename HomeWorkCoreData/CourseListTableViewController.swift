@@ -16,38 +16,30 @@ protocol CoursePickerDelegate: class {
 class CourseListTableViewController: UITableViewController {
     var managedObjectContext: NSManagedObjectContext!
     var courses = [Course]()
+    var saveCoreData: SaverWithErrorMessage?
     
     weak var pickerDelegate: CoursePickerDelegate?
     var selectedCourse: Course?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         let appDelegate = UIApplication.shared.delegate as? AppDelegate
         managedObjectContext = appDelegate?.managedObjectContext
         title = "Course List"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(CourseListTableViewController.addCourse(sender:)))
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        saveCoreData = SaverWithErrorMessage(managedObjectContext: self.managedObjectContext)
     }
     override func viewWillAppear(_ animated: Bool) {
         reloadData()
         tableView.reloadData()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        
-        // Dispose of any resources that can be recreated.
-    }
+
 
     @objc func addCourse(sender: AnyObject?){
         performSegue(withIdentifier: "courseDetail", sender: self)
     }
-    // MARK: - Table view data source
+   
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -55,7 +47,7 @@ class CourseListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+      
         return courses.count
     }
     
@@ -94,14 +86,15 @@ class CourseListTableViewController: UITableViewController {
             
             tableView.reloadData()
         } else {
-            if let coursesTableViewController = storyboard?.instantiateViewController(withIdentifier: "Students") as? ListStudentTableViewController{
-                let course = courses[indexPath.row]
-                
-                coursesTableViewController.managedObjectContext = managedObjectContext
-                coursesTableViewController.selectedCourse = course
-                navigationController?.pushViewController(coursesTableViewController, animated: true)
-                
-            }
+//            if let coursesTableViewController = storyboard?.instantiateViewController(withIdentifier: "Students") as? ListStudentTableViewController{
+//                let course = courses[indexPath.row]
+            
+//                
+//                coursesTableViewController.managedObjectContext = managedObjectContext
+//                coursesTableViewController.selectedCourse = course
+//                navigationController?.pushViewController(coursesTableViewController, animated: true)
+//                
+//            }
         }
         
         tableView.deselectRow(at: indexPath as IndexPath, animated: true)
@@ -115,11 +108,7 @@ class CourseListTableViewController: UITableViewController {
         if editingStyle == .delete {
             let thisIsCourse = courses[indexPath.row]
             managedObjectContext.delete(thisIsCourse)
-            do {
-                try managedObjectContext.save()
-            } catch {
-                print("Sorry, can't save")
-            }
+            saveCoreData?.saver(label: "sorry can't save")
             reloadData()
         }
     }
