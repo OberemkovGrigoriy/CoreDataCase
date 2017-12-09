@@ -17,6 +17,7 @@ class ListStudentTableViewController: UITableViewController {
     var saveCoreData: SaverWithErrorMessage?
     var managedObjectContext: NSManagedObjectContext!
     var studients = [Student]()
+    var updateStudent: ReloaderStudentData?
     
     //for select student
     weak var pickerDelegate: StudentPickerDelegate?
@@ -28,13 +29,13 @@ class ListStudentTableViewController: UITableViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(ListStudentTableViewController.addStudent(sender:)))
         managedObjectContext = appDelegate.managedObjectContext
         saveCoreData = SaverWithErrorMessage(managedObjectContext: self.managedObjectContext)
+        updateStudent = ReloaderStudentData(tableView: self.tableView, managedObjectContext: self.managedObjectContext)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        reloadData()
+        studients = (updateStudent?.reloadData())!
         tableView.reloadData()
-     
     }
 
     override func didReceiveMemoryWarning() {
@@ -59,22 +60,6 @@ class ListStudentTableViewController: UITableViewController {
         performSegue(withIdentifier: "studentDetail", sender: self)
     }
     
-    func reloadData() {
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Student")
-
-        if managedObjectContext == nil{
-            print("fatalerror")
-        }
-        do{
-            if let results = try managedObjectContext.fetch(fetchRequest) as? [Student]{
-                studients = results
-                tableView.reloadData()
-            }
-        } catch {
-              print(error)
-        }
-    }
-    
     override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
         return pickerDelegate == nil
     }
@@ -84,7 +69,7 @@ class ListStudentTableViewController: UITableViewController {
             let thisIsStudent = studients[indexPath.row]
             managedObjectContext.delete(thisIsStudent)
             saveCoreData?.saver(label: "sorry can't save")
-            reloadData()
+            studients = (updateStudent?.reloadData())!
         }
     }
     

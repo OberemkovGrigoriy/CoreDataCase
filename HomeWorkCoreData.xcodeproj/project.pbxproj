@@ -12,6 +12,9 @@
 		BB6BC2541FD4747200482DBA /* CourseDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BC2531FD4747200482DBA /* CourseDetailTableViewController.swift */; };
 		BB6BC2601FD5BB1D00482DBA /* JournalTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BC25F1FD5BB1D00482DBA /* JournalTableViewController.swift */; };
 		BB74F76F1FD86D7700485F6D /* SaverWithErrorMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB74F76E1FD86D7700485F6D /* SaverWithErrorMessage.swift */; };
+		BB74F7711FD9BB6E00485F6D /* ReloaderStudentData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB74F7701FD9BB6E00485F6D /* ReloaderStudentData.swift */; };
+		BB74F7731FD9C38B00485F6D /* ReloaderCourseData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB74F7721FD9C38B00485F6D /* ReloaderCourseData.swift */; };
+		BB74F7751FD9C9A500485F6D /* ReloaderJournalData.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB74F7741FD9C9A500485F6D /* ReloaderJournalData.swift */; };
 		BB90C2F41FD06EAC00012F5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB90C2F31FD06EAC00012F5E /* AppDelegate.swift */; };
 		BB90C2F91FD06EAC00012F5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BB90C2F71FD06EAC00012F5E /* Main.storyboard */; };
 		BB90C2FC1FD06EAC00012F5E /* HomeWorkCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = BB90C2FA1FD06EAC00012F5E /* HomeWorkCoreData.xcdatamodeld */; };
@@ -26,6 +29,9 @@
 		BB6BC2531FD4747200482DBA /* CourseDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailTableViewController.swift; sourceTree = "<group>"; };
 		BB6BC25F1FD5BB1D00482DBA /* JournalTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalTableViewController.swift; sourceTree = "<group>"; };
 		BB74F76E1FD86D7700485F6D /* SaverWithErrorMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SaverWithErrorMessage.swift; sourceTree = "<group>"; };
+		BB74F7701FD9BB6E00485F6D /* ReloaderStudentData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloaderStudentData.swift; sourceTree = "<group>"; };
+		BB74F7721FD9C38B00485F6D /* ReloaderCourseData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloaderCourseData.swift; sourceTree = "<group>"; };
+		BB74F7741FD9C9A500485F6D /* ReloaderJournalData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReloaderJournalData.swift; sourceTree = "<group>"; };
 		BB90C2F01FD06EAC00012F5E /* HomeWorkCoreData.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HomeWorkCoreData.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB90C2F31FD06EAC00012F5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BB90C2F81FD06EAC00012F5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -51,6 +57,9 @@
 			isa = PBXGroup;
 			children = (
 				BB74F76E1FD86D7700485F6D /* SaverWithErrorMessage.swift */,
+				BB74F7701FD9BB6E00485F6D /* ReloaderStudentData.swift */,
+				BB74F7721FD9C38B00485F6D /* ReloaderCourseData.swift */,
+				BB74F7741FD9C9A500485F6D /* ReloaderJournalData.swift */,
 			);
 			path = CoreLayer;
 			sourceTree = "<group>";
@@ -75,11 +84,11 @@
 			isa = PBXGroup;
 			children = (
 				BB74F76D1FD86CA600485F6D /* CoreLayer */,
-				BB90C2F31FD06EAC00012F5E /* AppDelegate.swift */,
+				BB6BC25F1FD5BB1D00482DBA /* JournalTableViewController.swift */,
 				BB6BC2511FD46A0F00482DBA /* CourseListTableViewController.swift */,
+				BB90C2F31FD06EAC00012F5E /* AppDelegate.swift */,
 				BB6BC24D1FD1DF5800482DBA /* StudentDetailTableViewController.swift */,
 				BB90C3081FD0A23000012F5E /* ListStudentTableViewController.swift */,
-				BB6BC25F1FD5BB1D00482DBA /* JournalTableViewController.swift */,
 				BB6BC2531FD4747200482DBA /* CourseDetailTableViewController.swift */,
 				BB90C2F71FD06EAC00012F5E /* Main.storyboard */,
 				BB90C2FD1FD06EAC00012F5E /* Assets.xcassets */,
@@ -166,6 +175,9 @@
 				BB90C2FC1FD06EAC00012F5E /* HomeWorkCoreData.xcdatamodeld in Sources */,
 				BB6BC2541FD4747200482DBA /* CourseDetailTableViewController.swift in Sources */,
 				BB6BC2521FD46A0F00482DBA /* CourseListTableViewController.swift in Sources */,
+				BB74F7731FD9C38B00485F6D /* ReloaderCourseData.swift in Sources */,
+				BB74F7751FD9C9A500485F6D /* ReloaderJournalData.swift in Sources */,
+				BB74F7711FD9BB6E00485F6D /* ReloaderStudentData.swift in Sources */,
 				BB90C3091FD0A23000012F5E /* ListStudentTableViewController.swift in Sources */,
 				BB6BC2601FD5BB1D00482DBA /* JournalTableViewController.swift in Sources */,
 				BB74F76F1FD86D7700485F6D /* SaverWithErrorMessage.swift in Sources */,

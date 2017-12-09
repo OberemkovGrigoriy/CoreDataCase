@@ -35,7 +35,7 @@ class StudentDetailTableViewController: UITableViewController {
             nameTextField.text = student.name
             surnameTextField.text = student.surname
             emailTextField.text = student.email
-            
+            courseTextField.text = student.courseName
             if let ownCourse = student.writtenDownForCourse{
                 courseTextField.text = ownCourse.courseName
             } else{

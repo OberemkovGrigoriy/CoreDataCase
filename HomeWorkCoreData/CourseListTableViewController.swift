@@ -17,7 +17,7 @@ class CourseListTableViewController: UITableViewController {
     var managedObjectContext: NSManagedObjectContext!
     var courses = [Course]()
     var saveCoreData: SaverWithErrorMessage?
-    
+    var updateCurses: ReloaderCourseData?
     weak var pickerDelegate: CoursePickerDelegate?
     var selectedCourse: Course?
     
@@ -27,10 +27,11 @@ class CourseListTableViewController: UITableViewController {
         managedObjectContext = appDelegate?.managedObjectContext
         title = "Course List"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(CourseListTableViewController.addCourse(sender:)))
+        updateCurses = ReloaderCourseData(managedObjectContext: self.managedObjectContext, tableView: self.tableView)
         saveCoreData = SaverWithErrorMessage(managedObjectContext: self.managedObjectContext)
     }
     override func viewWillAppear(_ animated: Bool) {
-        reloadData()
+        courses = (updateCurses?.reloadData())!
         tableView.reloadData()
     }
 
@@ -71,6 +72,7 @@ class CourseListTableViewController: UITableViewController {
         
         if selectedCourse == course {
             cell.accessoryType = .checkmark
+            
         } else{
             cell.accessoryType = .none
         }
@@ -109,23 +111,8 @@ class CourseListTableViewController: UITableViewController {
             let thisIsCourse = courses[indexPath.row]
             managedObjectContext.delete(thisIsCourse)
             saveCoreData?.saver(label: "sorry can't save")
-            reloadData()
+            courses = (updateCurses?.reloadData())! 
+            tableView.reloadData()
         }
     }
-    
-    func reloadData(){
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Course")
-        if managedObjectContext == nil{
-            print("Can't find managedObjectContext!")
-        }
-        do{
-            if let result = try managedObjectContext.fetch(fetchRequest) as? [Course]{
-                    courses = result
-                    tableView.reloadData()
-            }
-        } catch{
-                print("Can't get result")
-        }
-    }
-    
 }

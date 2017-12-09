@@ -17,6 +17,7 @@ class JournalTableViewController: UITableViewController {
     weak var pickerDelegate: StudentPickerDelegate?
     var saveCoreData: SaverWithErrorMessage?
     var model: NSManagedObjectModel?
+    var updateDate: ReloaderJournalData?
     
     @IBAction func backButton(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -25,26 +26,19 @@ class JournalTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         
         model = (managedObjectContext.persistentStoreCoordinator?.managedObjectModel)!
         saveCoreData = SaverWithErrorMessage(managedObjectContext: self.managedObjectContext)
-        guard let fetchRequest = model?.fetchRequestFromTemplate(withName: "Journal", substitutionVariables: ["courseName" : templateName!]) as? NSFetchRequest<Student> else {
-            assert(false, "No template!")
-        }
-        print(fetchRequest)
-        
-        do{
-            print("start executing")
-            let result = try self.managedObjectContext.fetch(fetchRequest)
-            students = result
-            print(students.count)
-            
-        } catch {
-            print("Error")
-        }
+        updateDate = ReloaderJournalData(tableView: self.tableView, managedObjectContext: self.managedObjectContext, template: self.templateName!, model: self.model!)
+        print(updateDate?.managedObjectContext)
+        print(updateDate?.template)
+        print(updateDate?.model)
+        students = (updateDate?.reloadData())!
+
         tableView.reloadData()
     }
 
@@ -66,29 +60,16 @@ class JournalTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let thisIsStudent = students[indexPath.row]
-            thisIsStudent.courseName = nil
+            thisIsStudent.courseName = ""
+            thisIsStudent.writtenDownForCourse = nil
             saveCoreData?.saver(label: "sorry can't save")
-            reloadData()
+            students = (updateDate?.reloadData())!
+            print(thisIsStudent)
+            tableView.reloadData()
         }
     }
 
-    func reloadData() {
-        guard let fetchRequest = model?.fetchRequestFromTemplate(withName: "Journal", substitutionVariables: ["courseName" : templateName!]) as? NSFetchRequest<Student> else {
-            assert(false, "No template!")
-        }
-        print(fetchRequest)
-        
-        do{
-            print("start executing")
-            let result = try self.managedObjectContext.fetch(fetchRequest)
-            students = result
-            print(students.count)
-            
-        } catch {
-            print("Error")
-        }
-        tableView.reloadData()
-    }
+
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return students.count
