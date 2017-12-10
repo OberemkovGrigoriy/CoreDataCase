@@ -50,6 +50,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zWZ-3o-c3t">
+                            <rect key="frame" x="0.0" y="204" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Save"/>
+                            <connections>
+                                <action selector="svaeStudentDetail:" destination="9wU-P7-fzV" eventType="touchUpInside" id="vKI-4p-dy1"/>
+                            </connections>
+                        </button>
                         <sections>
                             <tableViewSection headerTitle="Section-1" id="jOv-U4-kCy">
                                 <cells>
@@ -194,11 +202,41 @@
                         <outlet property="emailTextField" destination="SHT-dj-Cvf" id="e6x-yK-Y15"/>
                         <outlet property="nameTextField" destination="N9Z-GI-UCK" id="h1u-eU-O9Z"/>
                         <outlet property="surnameTextField" destination="yjx-zw-6lo" id="M1z-yW-y3F"/>
+                        <segue destination="0Oo-8l-Of9" kind="modal" identifier="toCourseList" id="KUW-yK-8OV"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LF4-PV-uRY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3696.8000000000002" y="-493.40329835082463"/>
+        </scene>
+        <!--Choose Course Table View Controller-->
+        <scene sceneID="LuM-dU-tWX">
+            <objects>
+                <tableViewController storyboardIdentifier="CourseList" id="0Oo-8l-Of9" customClass="ChooseCourseTableViewController" customModule="HomeWorkCoreData" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ctd-Mn-yWi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectCell" id="vIC-4z-Pns">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vIC-4z-Pns" id="yb8-pi-Lg9">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="0Oo-8l-Of9" id="5YV-Qi-OFs"/>
+                            <outlet property="delegate" destination="0Oo-8l-Of9" id="2Sg-8F-hgI"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="JhH-yP-9zf"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cgZ-qU-8pH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4449" y="-493"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="jfz-nZ-TGe">
@@ -230,7 +268,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A0h-xr-Igt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2798" y="261"/>
+            <point key="canvasLocation" x="2798" y="265"/>
         </scene>
         <!--Course Detail Table View Controller-->
         <scene sceneID="ZL6-zp-V4m">
@@ -240,6 +278,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="MjH-eX-aGM">
+                            <rect key="frame" x="0.0" y="220" width="375" height="44"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Save"/>
+                            <connections>
+                                <action selector="saveCourseDetail:" destination="YcT-p7-YFa" eventType="touchUpInside" id="Y04-2p-5zn"/>
+                            </connections>
+                        </button>
                         <sections>
                             <tableViewSection id="B21-Zt-izu">
                                 <cells>
@@ -408,7 +454,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fov-Xy-uVw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3692" y="264.91754122938534"/>
+            <point key="canvasLocation" x="3697" y="265"/>
         </scene>
         <!--Journal Table View Controller-->
         <scene sceneID="PAs-vT-Pr3">
@@ -454,7 +500,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3j-lU-3tn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4497" y="268"/>
+            <point key="canvasLocation" x="4450" y="265"/>
         </scene>
         <!--Item-->
         <scene sceneID="Y5A-sD-Q1E">
@@ -471,7 +517,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h06-nC-iQi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1905" y="262"/>
+            <point key="canvasLocation" x="1910" y="265"/>
         </scene>
         <!--Item-->
         <scene sceneID="I0r-Rq-dAT">
@@ -488,7 +534,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c3x-D1-LPR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1874" y="-493"/>
+            <point key="canvasLocation" x="1910" y="-493"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yRH-om-rx0">
@@ -506,7 +552,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CXP-Wk-6ut" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="687" y="-88"/>
+            <point key="canvasLocation" x="185" y="-133"/>
         </scene>
     </scenes>
 </document>

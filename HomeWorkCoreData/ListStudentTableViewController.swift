@@ -70,6 +70,7 @@ class ListStudentTableViewController: UITableViewController {
             managedObjectContext.delete(thisIsStudent)
             saveCoreData?.saver(label: "sorry can't save")
             studients = (updateStudent?.reloadData())!
+            tableView.reloadData()
         }
     }
     

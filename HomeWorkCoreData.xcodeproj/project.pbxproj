@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB0DCB831FDC874A00BB5373 /* ChooseCourseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0DCB821FDC874A00BB5373 /* ChooseCourseTableViewController.swift */; };
 		BB6BC24E1FD1DF5800482DBA /* StudentDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BC24D1FD1DF5800482DBA /* StudentDetailTableViewController.swift */; };
 		BB6BC2521FD46A0F00482DBA /* CourseListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BC2511FD46A0F00482DBA /* CourseListTableViewController.swift */; };
 		BB6BC2541FD4747200482DBA /* CourseDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BC2531FD4747200482DBA /* CourseDetailTableViewController.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB0DCB821FDC874A00BB5373 /* ChooseCourseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCourseTableViewController.swift; sourceTree = "<group>"; };
 		BB6BC24D1FD1DF5800482DBA /* StudentDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailTableViewController.swift; sourceTree = "<group>"; };
 		BB6BC2511FD46A0F00482DBA /* CourseListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListTableViewController.swift; sourceTree = "<group>"; };
 		BB6BC2531FD4747200482DBA /* CourseDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -86,10 +88,11 @@
 				BB74F76D1FD86CA600485F6D /* CoreLayer */,
 				BB6BC25F1FD5BB1D00482DBA /* JournalTableViewController.swift */,
 				BB6BC2511FD46A0F00482DBA /* CourseListTableViewController.swift */,
-				BB90C2F31FD06EAC00012F5E /* AppDelegate.swift */,
+				BB0DCB821FDC874A00BB5373 /* ChooseCourseTableViewController.swift */,
 				BB6BC24D1FD1DF5800482DBA /* StudentDetailTableViewController.swift */,
 				BB90C3081FD0A23000012F5E /* ListStudentTableViewController.swift */,
 				BB6BC2531FD4747200482DBA /* CourseDetailTableViewController.swift */,
+				BB90C2F31FD06EAC00012F5E /* AppDelegate.swift */,
 				BB90C2F71FD06EAC00012F5E /* Main.storyboard */,
 				BB90C2FD1FD06EAC00012F5E /* Assets.xcassets */,
 				BB90C2FF1FD06EAC00012F5E /* LaunchScreen.storyboard */,
@@ -180,6 +183,7 @@
 				BB74F7711FD9BB6E00485F6D /* ReloaderStudentData.swift in Sources */,
 				BB90C3091FD0A23000012F5E /* ListStudentTableViewController.swift in Sources */,
 				BB6BC2601FD5BB1D00482DBA /* JournalTableViewController.swift in Sources */,
+				BB0DCB831FDC874A00BB5373 /* ChooseCourseTableViewController.swift in Sources */,
 				BB74F76F1FD86D7700485F6D /* SaverWithErrorMessage.swift in Sources */,
 				BB90C2F41FD06EAC00012F5E /* AppDelegate.swift in Sources */,
 			);

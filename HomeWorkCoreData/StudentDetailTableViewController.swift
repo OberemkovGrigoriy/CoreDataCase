@@ -22,6 +22,24 @@ class StudentDetailTableViewController: UITableViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var courseTextField: UITextField!
     
+    @IBAction func svaeStudentDetail(_ sender: Any) {
+        if let student = student, let name = nameTextField.text, let surname = surnameTextField.text, let email = emailTextField.text, let course = courseTextField.text{
+            student.name = name
+            student.email = email
+            student.surname = surname
+            student.courseName = course
+            saveCoreData?.saver(label: "Sorry, can't change")
+        }else  if student == nil{
+            if let name = nameTextField.text, let surname = surnameTextField.text, let email = emailTextField.text, let course = courseTextField.text, let entity = NSEntityDescription.entity(forEntityName: "Student", in: managedObjectContext), !name.isEmpty && !surname.isEmpty && !email.isEmpty  {
+                student = Student(entity: entity, insertInto: managedObjectContext)
+                student?.name = name
+                student?.surname = surname
+                student?.email = email
+                student?.courseName = course
+            }
+            saveCoreData?.saver(label: "Sorry, can't change")
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         saveCoreData = SaverWithErrorMessage(managedObjectContext: self.managedObjectContext)
@@ -49,28 +67,9 @@ class StudentDetailTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        if let student = student, let name = nameTextField.text, let surname = surnameTextField.text, let email = emailTextField.text, let course = courseTextField.text{
-            student.name = name
-            student.email = email
-            student.surname = surname
-            student.courseName = course
-            saveCoreData?.saver(label: "Sorry, can't change")
-        }else  if student == nil{
-            if let name = nameTextField.text, let surname = surnameTextField.text, let email = emailTextField.text, let course = courseTextField.text, let entity = NSEntityDescription.entity(forEntityName: "Student", in: managedObjectContext), !name.isEmpty && !surname.isEmpty && !email.isEmpty  {
-                student = Student(entity: entity, insertInto: managedObjectContext)
-                student?.name = name
-                student?.surname = surname
-                student?.email = email
-                student?.courseName = course
-            }
-            saveCoreData?.saver(label: "Sorry, can't change")
-        }
-    }
-    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.section == 1 && indexPath.row == 0{
-            if let studentPicker = storyboard?.instantiateViewController(withIdentifier: "Courses") as? CourseListTableViewController{
+            if let studentPicker = storyboard?.instantiateViewController(withIdentifier: "CourseList") as? ChooseCourseTableViewController{
                 studentPicker.managedObjectContext = managedObjectContext
                 
                 studentPicker.pickerDelegate = self

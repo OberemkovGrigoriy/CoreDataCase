@@ -19,7 +19,7 @@ class CourseListTableViewController: UITableViewController {
     var saveCoreData: SaverWithErrorMessage?
     var updateCurses: ReloaderCourseData?
     weak var pickerDelegate: CoursePickerDelegate?
-    var selectedCourse: Course?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,8 +34,6 @@ class CourseListTableViewController: UITableViewController {
         courses = (updateCurses?.reloadData())!
         tableView.reloadData()
     }
-
-
 
     @objc func addCourse(sender: AnyObject?){
         performSegue(withIdentifier: "courseDetail", sender: self)
@@ -70,40 +68,10 @@ class CourseListTableViewController: UITableViewController {
         cell.detailTextLabel?.text = course.value(forKey: "teachersName") as? String
         cell.textLabel?.text = course.value(forKey: "courseName") as? String
         
-        if selectedCourse == course {
-            cell.accessoryType = .checkmark
-            
-        } else{
-            cell.accessoryType = .none
-        }
+       
+        cell.accessoryType = .none
 
         return cell 
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let pickerDelegate = pickerDelegate {
-            let course = courses[indexPath.row]
-            selectedCourse = course
-            pickerDelegate.didSelectCourse(course: course)
-            
-            tableView.reloadData()
-        } else {
-//            if let coursesTableViewController = storyboard?.instantiateViewController(withIdentifier: "Students") as? ListStudentTableViewController{
-//                let course = courses[indexPath.row]
-            
-//                
-//                coursesTableViewController.managedObjectContext = managedObjectContext
-//                coursesTableViewController.selectedCourse = course
-//                navigationController?.pushViewController(coursesTableViewController, animated: true)
-//                
-//            }
-        }
-        
-        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
-    }
-    
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return pickerDelegate == nil
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
