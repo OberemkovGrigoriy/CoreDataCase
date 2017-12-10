@@ -34,9 +34,6 @@ class JournalTableViewController: UITableViewController {
         model = (managedObjectContext.persistentStoreCoordinator?.managedObjectModel)!
         saveCoreData = SaverWithErrorMessage(managedObjectContext: self.managedObjectContext)
         updateDate = ReloaderJournalData(tableView: self.tableView, managedObjectContext: self.managedObjectContext, template: self.templateName!, model: self.model!)
-        print(updateDate?.managedObjectContext)
-        print(updateDate?.template)
-        print(updateDate?.model)
         students = (updateDate?.reloadData())!
 
         tableView.reloadData()
