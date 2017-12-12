@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A8561C2B1EAFDF3E556FDF14 /* Pods_HomeWorkCoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32709D4328A26A947DB6DE2F /* Pods_HomeWorkCoreData.framework */; };
 		BB0DCB831FDC874A00BB5373 /* ChooseCourseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB0DCB821FDC874A00BB5373 /* ChooseCourseTableViewController.swift */; };
+		BB0DCB841FE07A9600BB5373 /* UICircularProgressRing.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB0DCB851FE07A9600BB5373 /* UICircularProgressRing.framework */; };
 		BB6BC24E1FD1DF5800482DBA /* StudentDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BC24D1FD1DF5800482DBA /* StudentDetailTableViewController.swift */; };
 		BB6BC2521FD46A0F00482DBA /* CourseListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BC2511FD46A0F00482DBA /* CourseListTableViewController.swift */; };
 		BB6BC2541FD4747200482DBA /* CourseDetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB6BC2531FD4747200482DBA /* CourseDetailTableViewController.swift */; };
@@ -25,7 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32709D4328A26A947DB6DE2F /* Pods_HomeWorkCoreData.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_HomeWorkCoreData.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		435C518C4280192519B6C98A /* Pods-HomeWorkCoreData.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeWorkCoreData.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HomeWorkCoreData/Pods-HomeWorkCoreData.debug.xcconfig"; sourceTree = "<group>"; };
 		BB0DCB821FDC874A00BB5373 /* ChooseCourseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseCourseTableViewController.swift; sourceTree = "<group>"; };
+		BB0DCB851FE07A9600BB5373 /* UICircularProgressRing.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = UICircularProgressRing.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB6BC24D1FD1DF5800482DBA /* StudentDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentDetailTableViewController.swift; sourceTree = "<group>"; };
 		BB6BC2511FD46A0F00482DBA /* CourseListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListTableViewController.swift; sourceTree = "<group>"; };
 		BB6BC2531FD4747200482DBA /* CourseDetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailTableViewController.swift; sourceTree = "<group>"; };
@@ -42,6 +47,7 @@
 		BB90C3001FD06EAC00012F5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BB90C3021FD06EAC00012F5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB90C3081FD0A23000012F5E /* ListStudentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListStudentTableViewController.swift; sourceTree = "<group>"; };
+		FA5D66BEE2503DEBD1E64D9F /* Pods-HomeWorkCoreData.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HomeWorkCoreData.release.xcconfig"; path = "Pods/Target Support Files/Pods-HomeWorkCoreData/Pods-HomeWorkCoreData.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -49,12 +55,32 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BB0DCB841FE07A9600BB5373 /* UICircularProgressRing.framework in Frameworks */,
+				A8561C2B1EAFDF3E556FDF14 /* Pods_HomeWorkCoreData.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		278DE2F2BE16D946804BCB2B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				435C518C4280192519B6C98A /* Pods-HomeWorkCoreData.debug.xcconfig */,
+				FA5D66BEE2503DEBD1E64D9F /* Pods-HomeWorkCoreData.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8E6DA97C86471FA04465B009 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB0DCB851FE07A9600BB5373 /* UICircularProgressRing.framework */,
+				32709D4328A26A947DB6DE2F /* Pods_HomeWorkCoreData.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		BB74F76D1FD86CA600485F6D /* CoreLayer */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,6 +97,8 @@
 			children = (
 				BB90C2F21FD06EAC00012F5E /* HomeWorkCoreData */,
 				BB90C2F11FD06EAC00012F5E /* Products */,
+				278DE2F2BE16D946804BCB2B /* Pods */,
+				8E6DA97C86471FA04465B009 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,9 +137,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = BB90C3051FD06EAC00012F5E /* Build configuration list for PBXNativeTarget "HomeWorkCoreData" */;
 			buildPhases = (
+				66362B171174F58C36C11A07 /* [CP] Check Pods Manifest.lock */,
 				BB90C2EC1FD06EAC00012F5E /* Sources */,
 				BB90C2ED1FD06EAC00012F5E /* Frameworks */,
 				BB90C2EE1FD06EAC00012F5E /* Resources */,
+				B10070C914F8E9525B584AA6 /* [CP] Embed Pods Frameworks */,
+				FD0622D54F3AD1C781CD5B2C /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -168,6 +199,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		66362B171174F58C36C11A07 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-HomeWorkCoreData-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B10070C914F8E9525B584AA6 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-HomeWorkCoreData/Pods-HomeWorkCoreData-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/UICircularProgressRing/UICircularProgressRing.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UICircularProgressRing.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HomeWorkCoreData/Pods-HomeWorkCoreData-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FD0622D54F3AD1C781CD5B2C /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HomeWorkCoreData/Pods-HomeWorkCoreData-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		BB90C2EC1FD06EAC00012F5E /* Sources */ = {
@@ -320,6 +405,7 @@
 		};
 		BB90C3061FD06EAC00012F5E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 435C518C4280192519B6C98A /* Pods-HomeWorkCoreData.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -335,6 +421,7 @@
 		};
 		BB90C3071FD06EAC00012F5E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FA5D66BEE2503DEBD1E64D9F /* Pods-HomeWorkCoreData.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

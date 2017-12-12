@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreData
+import UICircularProgressRing
+
 
 protocol CoursePickerDelegate: class {
     func didSelectCourse(course: Course)
